@@ -1,19 +1,26 @@
 const express = require('express')
 const app = express()
-const port = 5000
+const port = process.env.PORT || 5000
 const mongoDB = require("./db")
 
 mongoDB();
 
 //ye banana he padt hai jab frontend port 3000 se backend port 5000 pe data accept krna hota haii to
-app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  next();
-});
+// app.use((req, res, next) => {
+//   res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+//   res.header(
+//     "Access-Control-Allow-Headers",
+//     "Origin, X-Requested-With, Content-Type, Accept"
+//   );
+//   next();
+// });
+
+
+app.use(cors({
+  origin: "http://localhost:3000",
+  methods: "GET,PUT,PATCH,POST,DELETE",
+  credentials: true, // enable set cookie
+}));
 
 app.use(express.json())
 app.use('/api', require("./Routes/CreateUser"));
