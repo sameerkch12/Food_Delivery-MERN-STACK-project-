@@ -13,7 +13,7 @@ mongoDB();
 //     "Origin, X-Requested-With, Content-Type, Accept"
 //   );
 //   next();
-// });
+// })sameer;
 
 
 app.use(cors({
