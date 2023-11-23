@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const port = process.env.PORT || 5000
 const mongoDB = require("./db")
+const cors = require('cors');
 
 mongoDB();
 
@@ -13,7 +14,7 @@ mongoDB();
 //     "Origin, X-Requested-With, Content-Type, Accept"
 //   );
 //   next();
-// })sameer;
+// })same;
 
 
 app.use(cors({
