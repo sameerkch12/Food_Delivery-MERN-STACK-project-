@@ -60,6 +60,9 @@ export default function Login() {
 
   return (
     <div>
+       <div>
+      <Navebar />
+    </div>
       <div className='container'>
         <form >
          

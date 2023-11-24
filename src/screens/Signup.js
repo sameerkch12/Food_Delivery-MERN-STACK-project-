@@ -45,6 +45,9 @@ export default function Signup() {
 
   return (
     <>
+     <div>
+      <Navebar />
+    </div>
       <div className='container'>
         <form>
           <div className="mb-3">
