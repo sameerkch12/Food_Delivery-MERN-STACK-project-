@@ -18,7 +18,7 @@ mongoDB();
 
 
 app.use(cors({
-  origin: "http://localhost:3000",
+  origin: "https://6560f03fe2e688167d89bd85--statuesque-haupia-65b657.netlify.app",
   methods: "GET,PUT,PATCH,POST,DELETE",
   credentials: true, // enable set cookie
 }));
