@@ -10,7 +10,7 @@ export default function Home() {
   const [foodItem, setFoodItem] = useState([]);
 
   const loadData = async () => {
-    let response = await fetch("http://localhost:5000/api/foodData", {
+    let response = await fetch("https://backend-b06f.onrender.com/api/foodData", {
       method: "POST",
       headers: {
         'Content-Type': 'application/json'
@@ -65,7 +65,7 @@ export default function Home() {
 
         <div className='container'>
           {
-            foodCat !== []
+            foodCat !== null
               ? foodCat.map((data) => {
                 return (
                   <div className='row mb-3'>
@@ -73,7 +73,7 @@ export default function Home() {
                       {data.CategoryName}
                     </div>
                     <hr />
-                    {foodItem !== []
+                    {foodItem !== null
                       ?
                       foodItem.filter((items) => (items.CategoryName === data.CategoryName) && (items.name.toLowerCase().includes(search.toLowerCase())))
                         .map(filterItems => {

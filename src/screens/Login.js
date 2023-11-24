@@ -14,7 +14,7 @@ export default function Login() {
     console.log("clik");
     console.log(JSON.stringify({ email: credentials.email }))
 
-    axios.post('http://localhost:5000/api/loginuser', {
+    axios.post('https://backend-b06f.onrender.com/api/loginuser', {
       email: credentials.email,
       password: credentials.password,
 
@@ -76,9 +76,9 @@ export default function Login() {
 
 
         
-          <button type="submit" className="m-0 btn btn-success" onClick={handleSubmit}>Submit</button>
+          <button type="submit" className="m-0 btn btn-success" onClick={handleSubmit}> Login </button>
 
-          <Link to="/createuser" className="m-3  btn btn-danger">Im a new user</Link>
+          <Link to="/createuser" className="m-3  btn btn-danger"> Sign Up </Link>
         </form>
       </div>
 
