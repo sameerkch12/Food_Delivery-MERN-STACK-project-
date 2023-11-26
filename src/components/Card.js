@@ -24,7 +24,7 @@ export const Card = (props) => {
     }
     console.log(food)
     console.log(new Date())
-    if (food !== []) {
+    if (food !== null) {
       if (food.size === size) {
         await dispatch({ type: "UPDATE", id: foodItem._id, price: finalPrice, qty: qty })
         return
