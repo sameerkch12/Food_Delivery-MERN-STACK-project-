@@ -8,6 +8,7 @@ export default function Home() {
   const [search, setSearch] = useState('')
   const [foodCat, setFoodCat] = useState([]);
   const [foodItem, setFoodItem] = useState([]);
+ 
 
   const loadData = async () => {
     let response = await fetch("https://backend-b06f.onrender.com/api/foodData", {
@@ -61,9 +62,11 @@ export default function Home() {
           <span className="visually-hidden">Next</span>
         </button>
       </div>
+
+
     </div>
 
-        <div className='container'>
+        <div className='container' >
           {
             foodCat !== null
               ? foodCat.map((data) => {
