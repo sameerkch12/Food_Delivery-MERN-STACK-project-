@@ -18,7 +18,7 @@ mongoDB();
 
 
 app.use(cors({
-  origin: "https://6560f3e9e167cf185a5306c9--zippy-conkies-710b60.netlify.app",
+  origin: "https://front-putx.onrender.com",
   methods: "GET,PUT,PATCH,POST,DELETE",
   credentials: true, // enable set cookie
 }));
