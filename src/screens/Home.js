@@ -36,7 +36,7 @@ export default function Home() {
       <Navebar />
       <div>
         {loading ? (
-          <div className="text-center">Loading your data...</div>
+          <div className="text-center">plz wait data is Loading ..</div>
         ) : (
           <>
             <div id="carouselExampleFade" className="carousel slide carousel-fade" data-bs-ride="carousel">
