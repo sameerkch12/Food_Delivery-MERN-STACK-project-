@@ -36,7 +36,7 @@ export default function Home() {
       <Navebar />
       <div>
         {loading ? (
-          <div className="text-center">please wait data is Loading ..</div>
+          <div className="text-center">Loading your data...</div>
         ) : (
           <>
             <div id="carouselExampleFade" className="carousel slide carousel-fade" data-bs-ride="carousel">
@@ -61,6 +61,9 @@ export default function Home() {
               </button>
             </div>
             <div className='container'>
+              <div className="d-flex justify-content-center">
+                <input className="form-control me-2 w-75 bg-white text-dark" type="search" placeholder="Search in here..." aria-label="Search" value={search} onChange={(e) => { setSearch(e.target.value) }} />
+              </div>
               {foodCat !== null ? (
                 foodCat.map((data) => (
                   <div className='row mb-3'>
