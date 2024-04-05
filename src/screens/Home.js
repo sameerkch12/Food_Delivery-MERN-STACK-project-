@@ -36,14 +36,29 @@ export default function Home() {
       <Navebar />
       <div>
         {loading ? (
-          <div className="text-center">plz wait data is Loading ..</div>
+          <div className="text-center">Loading your data...</div>
         ) : (
           <>
             <div id="carouselExampleFade" className="carousel slide carousel-fade" data-bs-ride="carousel">
               <div className="carousel-inner" id='carousel'>
-                {/* Carousel items here */}
+                <div className="carousel-item active">
+                  <img src="https://source.unsplash.com/random/900x700/?burger" className="d-block w-100" style={{ filter: "brightness(30%)" }} alt="..." />
+                </div>
+                <div className="carousel-item">
+                  <img src="https://source.unsplash.com/random/900x700/?pastry" className="d-block w-100" style={{ filter: "brightness(30%)" }} alt="..." />
+                </div>
+                <div className="carousel-item">
+                  <img src="https://source.unsplash.com/random/900x700/?barbeque" className="d-block w-100" style={{ filter: "brightness(30%)" }} alt="..." />
+                </div>
               </div>
-              {/* Carousel controls here */}
+              <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span className="visually-hidden">Previous</span>
+              </button>
+              <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+                <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                <span className="visually-hidden">Next</span>
+              </button>
             </div>
             <div className='container'>
               {foodCat !== null ? (
