@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function Login() {
 
-  const [credentials, setcredentials] = useState({ email: "", password: "" })
+  const [credentials, setcredentials] = useState({ email: "sameer.sc2@gmail.com", password: "sameer" })
   const navigate = useNavigate();
   // const header = {"Access-Control-Allow-Origin": "*" };
   const handleSubmit = (e) => {
