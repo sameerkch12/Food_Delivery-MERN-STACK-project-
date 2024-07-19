@@ -1,46 +1,42 @@
-const express = require('express')
-const app = express()
-const port = process.env.PORT || 5000
-const mongoDB = require("./db")
+const express = require('express');
+const app = express();
+const port = process.env.PORT || 5000;
+const mongoDB = require("./db");
 const cors = require('cors');
 const https = require('https');
+
+// Initialize MongoDB connection
 mongoDB();
 
-//ye banana he padt hai jab frontend port 3000 se backend port 5000 pe data accept krna hota haii to
-// app.use((req, res, next) => {
-//   res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
-//   res.header(
-//     "Access-Control-Allow-Headers",
-//     "Origin, X-Requested-With, Content-Type, Accept"
-//   );
-//   next();
-// })same;
-
-
+// CORS configuration to allow requests from the frontend
 app.use(cors({
   origin: "https://front-putx.onrender.com",
-  methods: "GET,PUT,PATCH,POST,DELETE",
-  credentials: true, // enable set cookie
+  methods: "GET, PUT, PATCH, POST, DELETE",
+  credentials: true, // Enable set cookie
 }));
 
-app.use(express.json())
+app.use(express.json());
+
+// Define routes
 app.use('/api', require("./Routes/CreateUser"));
 app.use('/api', require("./Routes/DisplayData"));
 app.use('/api', require("./Routes/OrderData"));
 
-
-//nomal express start
+// Default route
 app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
+  res.send('Hello World!');
+});
 
+// Start the server
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+  console.log(`Example app listening on port ${port}`);
+});
+
+// Keep the server awake on Render
 setInterval(() => {
-    https.get('https://backend-b06f.onrender.com', (res) => {
-        console.log(`Server hit with status code: ${res.statusCode}`);
-    }).on('error', (e) => {
-        console.error(`Got error: ${e.message}`);
-    });
-},  10 * 1000); // Add the missing comma
+  https.get('https://backend-b06f.onrender.com', (res) => {
+    console.log(`Server hit with status code: ${res.statusCode}`);
+  }).on('error', (e) => {
+    console.error(`Got error: ${e.message}`);
+  });
+}, 3 * 60 * 1000); // Ping the server every 3 minutes (180000 ms)
