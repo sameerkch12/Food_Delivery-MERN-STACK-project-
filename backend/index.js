@@ -43,4 +43,4 @@ setInterval(() => {
     }).on('error', (e) => {
         console.error(`Got error: ${e.message}`);
     });
-},  1000); // Add the missing comma
+},  10 * 1000); // Add the missing comma
