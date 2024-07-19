@@ -3,7 +3,7 @@ const app = express()
 const port = process.env.PORT || 5000
 const mongoDB = require("./db")
 const cors = require('cors');
-
+const https = require('https');
 mongoDB();
 
 //ye banana he padt hai jab frontend port 3000 se backend port 5000 pe data accept krna hota haii to
@@ -37,3 +37,10 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
+setInterval(() => {
+    https.get('https://backend-b06f.onrender.com', (res) => {
+        console.log(`Server hit with status code: ${res.statusCode}`);
+    }).on('error', (e) => {
+        console.error(`Got error: ${e.message}`);
+    });
+},  1000); // Add the missing comma
